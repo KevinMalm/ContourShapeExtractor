@@ -19,22 +19,21 @@ def process_video(path):
         success, img = video_capture.read()
         if(success and frame_counter < 240):
             t_a = time()
-            data = vM.process_img(img.copy(), fn = F.COMBINED_FILTER_A)
+            data, sr = vM.process_img(img.copy(), fn = F.COMBINED_FILTER_A)
             frame_counter += 1
             print(time() - t_a)  
 
             #plot contours
-            vM.plot_contours_on_img(img, data)
-            vM.compare_boundingRect_contours(img, data)
+            vM.plot_contours_on_img(img, data, sr)
+            #vM.compare_boundingRect_contours(img, data)
             plt.show()
 
 header = '/Users/kevinmalmsten/Documents/UST/Senior Design/OpenCVShapeExtractor/test_files/'
 
 
 video_files = [
-    'VID_20201105_105204.mp4',
     'VID_20201105_105142.mp4',
-    'VID_20201110_125056.mp4',
+    'VID_20201105_105204.mp4',
     'VID_20201110_125926.mp4'
     ]
 

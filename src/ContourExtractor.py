@@ -69,6 +69,7 @@ class ContourExtractor:
 
             img_parts.append({
                 'data': c,
+                'label': 'undefined',
                 'img': masked
             })
         return img_parts
